@@ -10,7 +10,7 @@
           - https://artifacts.elastic.co/downloads/kibana/kibana-9.2.4-x86_64.rpm
           - https://artifacts.elastic.co/downloads/logstash/logstash-9.2.4-x86_64.rpm
 
-    - name: Ensure SELinux is set to enforcing mode
+    - name: Update kibana configuration
       ansible.builtin.lineinfile:
         path: /etc/kibana/kibana.yml
         regexp: "#server.host:"
