@@ -4,6 +4,7 @@
   tasks:
     - name: Install RPM
       ansible.builtin.dnf:
+        disable_gpg_check: true
         name:
           - https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-9.2.4-x86_64.rpm
           - https://artifacts.elastic.co/downloads/kibana/kibana-9.2.4-x86_64.rpm
