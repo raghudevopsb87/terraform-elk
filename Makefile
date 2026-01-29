@@ -1,0 +1,11 @@
+terraform:
+	git pull
+	terraform init
+	terraform apply -auto-approve
+
+ansible:
+	git pull
+	ansible-playbook -e ansible_user=ec2-user -e ansible_password=DevOps321 elk.yml
+
+
+
