@@ -1,0 +1,21 @@
+- name: ELK
+  hosts: all
+  become: true
+  tasks:
+    - name: Install RPM
+      ansible.builtin.dnf:
+        name:
+          - https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-9.2.4-x86_64.rpm
+          - https://artifacts.elastic.co/downloads/kibana/kibana-9.2.4-x86_64.rpm
+          - https://artifacts.elastic.co/downloads/logstash/logstash-9.2.4-x86_64.rpm
+
+    - name: Start Services
+      ansible.builtin.systemd_service:
+        name: "{{ item }}"
+        state: started
+        enabled: yes
+      loop:
+        - elasticsearch
+        - kibana
+
+
